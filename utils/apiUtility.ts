@@ -8,6 +8,7 @@ const baseUrl = process.env.SF_BASE_URL ?? "";
 export class SalesForceAPI {
     private sf_token!: string;
     private leadId!: string;
+    accessToken = "";
 
 
     constructor(private request: APIRequestContext) { }
@@ -30,6 +31,7 @@ export class SalesForceAPI {
         expect(response.status()).toBe(200)
         let responseBody = await response.json()
         this.sf_token = responseBody.access_token //Oauth key
+        this.accessToken = responseBody.access_token 
         console.log("Response", response.status())
     }
 

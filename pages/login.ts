@@ -1,6 +1,8 @@
 import { Page } from "@playwright/test";
 import { HomePage } from "./home";
 
+
+
 export class LoginPage{
 
     constructor(private page:Page){}
