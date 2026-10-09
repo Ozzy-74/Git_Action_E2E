@@ -42,7 +42,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test salesForce_e2e.spec.ts
+        run: npx playwright test verifyLeadUsingFixture.spec.ts
 
       - name: Upload Playwright report
         if: always()
