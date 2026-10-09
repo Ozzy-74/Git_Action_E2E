@@ -9,13 +9,17 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
 
     env:
+      CI: true
       SF_CLIENT_ID: ${{ secrets.SF_CLIENT_ID }}
       SF_CLIENT_SECRET: ${{ secrets.SF_CLIENT_SECRET }}
       SF_BASE_URL: ${{ secrets.SF_BASE_URL }}
+      # If your UI tests log in with a username/password, add them as secrets and uncomment:
+      # SF_USERNAME: ${{ secrets.SF_USERNAME }}
+      # SF_PASSWORD: ${{ secrets.SF_PASSWORD }}
 
     steps:
       - name: Checkout code
@@ -24,17 +28,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 24
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test salesForce_e2e.spec.ts --reporter=html
+        run: npx playwright test
 
       - name: Upload Playwright report
         if: always()
@@ -43,3 +51,4 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 14
+          if-no-files-found: ignore
