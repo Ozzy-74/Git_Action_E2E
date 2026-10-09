@@ -1,14 +1,13 @@
+//FIXTURES
 import {test as baseTest} from "@playwright/test"
 import { LoginPage } from "../pages/login"
 import { SalesForceAPI } from "../utils/apiUtility"
 import { request } from "node:http"
 
-
-//1. create custom type for fixture
+//1. create custom type for fixture 
 type salesforceObject={
     SFlogin : LoginPage,
-    SFapi: SalesForceAPI
-    
+    SFapi: SalesForceAPI   
 }
 
 //2. created the re usable config like object creation
