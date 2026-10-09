@@ -1,0 +1,17 @@
+[33mcommit fa17520232681723d0caf08795bff52e1dfa4354[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: krishna kumar <krishmlky74@gmail.com>
+Date:   Fri Oct 9 19:14:26 2026 +0530
+
+    Add Salesforce tests and utilities
+
+ .gitignore                            | 153 [32m++[m[31m--------------------------------[m
+ fixtures/salesForceFixtures.ts        |  29 [32m+++++++[m
+ pages/home.ts                         |  31 [32m+++++++[m
+ pages/lead.ts                         |  30 [32m+++++++[m
+ pages/login.ts                        |  25 [32m++++++[m
+ runner/salesForceApi.spec.ts          |  72 [32m++++++++++++++++[m
+ runner/salesForce_e2e.spec.ts         |  19 [32m+++++[m
+ runner/verifyLead.spec.ts             |  21 [32m+++++[m
+ runner/verifyLeadUsingFixture.spec.ts |  14 [32m++++[m
+ utils/apiUtility.ts                   |  75 [32m+++++++++++++++++[m
+ 10 files changed, 321 insertions(+), 148 deletions(-)
