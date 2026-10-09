@@ -18,8 +18,8 @@ jobs:
       SF_CLIENT_SECRET: ${{ secrets.SF_CLIENT_SECRET }}
       SF_BASE_URL: ${{ secrets.SF_BASE_URL }}
       # If your UI tests log in with a username/password, add them as secrets and uncomment:
-      # SF_USERNAME: ${{ secrets.SF_USERNAME }}
-      # SF_PASSWORD: ${{ secrets.SF_PASSWORD }}
+      SF_USERNAME: ${{ secrets.SF_USERNAME }}
+      SF_PASSWORD: ${{ secrets.SF_PASSWORD }}
 
     steps:
       - name: Checkout code
